@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+<script src='asyncReq.js'></script>
+<script>
+function updateData()
+{
+  loadURL("./getData", function(data){
+    document.getElementById("results").innerHTML = data;
+  })
+}
+function start()
+{
+  setInterval("updateData()", 300);
+}
+</script>
+
+<style>
+  /* CSS to make the image responsive */
+  img {
+      max-width: 45%;
+      height: auto;
+  }
+  img.portrait {
+            max-height: 300px;
+        }
+</style>
+</head>
+<body onload='start()'>
+<h1> Temperature/Humidity</h1>
+<div id='results'> </div>
+<div id='tutorial'>
+<h1>Tutorial</h1>
+    <h2>Setting up the EC2 Instance</h2>
+    <ul>
+        <li>Start the Sandbox using the AWS Academy webpage</li>
+        <li>Enter into AWS after the Lab is initialized</li>
+        <li>Inside AWS, go into EC2 instance > Launch Instance</li>
+        <li>Choose the following parameters to create the instance:</li>
+        <ul>
+            <li> Amazon Machine Image --> Ubuntu Server 20.04 LTS (HVM), SSD</li>
+            <li> Key Pair name ---> Proceed without keypair </li>
+            <li> Storage ---> 28 GB</li>
+            <img class="portrait" src="img/ec2-summary.png" alt="EC2 Instance Summary">
+        </ul>
+        <li>Keep all other configuration as their default values</li>
+        <li>Click on Launch Instance</li>
+        <img src="img/ec2-success.png" alt="ec2-success">
+    </ul>
+    
+    <h2>Configuring the EC2 Instance and setting up the server</h2>
+    <ul>
+        <li>Connect with EC2 instance via EC2 Instance Connect from the Connect menu</li>
+        <li>On success we will see a virtualized terminal in  a new tab </li>
+        <img src="img/ec2-console.png" alt="ec2-console">
+        <li>We now need to run the following commands to install the required packages:</li>
+        <ul>
+          <li> The following command will run a bunch of commands specified in the gist page:
+            <code>curl -s https://gist.githubusercontent.com/tejaswigowda/f289e9bff13d152876e8d4b3281142f8/raw/df37df2e16a3166e686357a045751a7c18bbeebe/installNodeMongoUbuntu16.04.sh  | bash</code></li>
+          <li> Install n using :  <code>sudo npm install -g n & sudo n latest </code></li>
+          <li> Install http-server : <code>sudo npm install -g http-server</code></li>
+        </ul>
+        <li>Use <code> clone repo-url to download the server code </code></li>
+        <li>Run portmap.sh using the command : <code>sh portmap.sh</code> located in the basic-servers directory</li>
+        <li>Start the server using the command : <code>node server.js</code> located in the captureDataserver-TempHum directory</li>
+    </ul>
+
+    <h2>Editing the Inboaund rules in AWS for our EC2</h2>
+    <ul>
+      <li>Open the security settings for the EC2 instance and click on the security group</li>
+      <li>Click on Edit Inbound rules</li>
+      <li>Click on Add rules and add the following ports :</li>
+      <img src="img/inbound-rules.png" alt="inbound-rules">
+      <li>Click on Save rules</li> 
+     </ul>
+
+     <h2>Now on to the Arduino / Client</h2>
+    <ul>
+      <li>Connect the DHT11 sensor to the TTGO watch and connect it to the laptop</li>
+      <li>Open the DHT11Default.ino in the ArduinoIDE</li>
+      <li>Install the library SimpleDHT in the Arduino IDE</li>
+      <li>Change the host IP to your EC2 Public IP</li>
+      <li>Change the SSID and Password to your internet hotspot</li>
+      <img src="img/arduino-changes.png" alt="arduino-changes">
+      <li>Verify and Upload the code to the TTGO watch</li>
+      <li>Check the Serial Monitor to verify if everything is working fine</li>
+      <img src="img/results.jpeg" alt="results">
+     </ul>
+
+</div>
+</body>
+</html>
