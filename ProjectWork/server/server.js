@@ -51,8 +51,16 @@ const imageSchema = new mongoose.Schema({
   contentType: String, // Specify the content type (e.g., 'image/jpeg', 'image/png')
 });
 
+
+const dataSchema = new mongoose.Schema({
+  name : String,
+  action: String, // Store image data as binary data
+  Date: String, // Specify the content type (e.g., 'image/jpeg', 'image/png')
+});
+
 // Create a model based on the schema
 const ImageModel = mongoose.model('Image', imageSchema);
+const nameModel = mongoose.model('Data', dataSchema);
 
 // Function to add an image to MongoDB
 async function addImageToMongoDB(_imageId, imageData, contentType) {
@@ -62,6 +70,20 @@ async function addImageToMongoDB(_imageId, imageData, contentType) {
 
     // Save the document to the database
     await newImage.save();
+
+    console.log('Image added to MongoDB successfully');
+  } catch (error) {
+    console.error('Error adding image to MongoDB:', error);
+  }
+}
+
+async function addDataToMongoDB(_name, _action, _date) {
+  try {
+    // Create a new document
+    const nameData = new nameModel({ name : _name, action: _action, date: _date });
+
+    // Save the document to the database
+    await nameData.save();
 
     console.log('Image added to MongoDB successfully');
   } catch (error) {
@@ -217,6 +239,9 @@ app.post('/api/checkthisface', async function (req, res){
   try {
     //console.log(req)
     personname = req.body.name
+    const now = new Date();
+    const timeString = now.toISOString();
+    addDataToMongoDB(personname, "REQUESTED", timeString )
     var buffer = Buffer.from(req.body.image, 'base64');
     fs.writeFileSync('check.jpg', buffer);
     var result = await callTestPython('check.jpg')
@@ -226,6 +251,9 @@ app.post('/api/checkthisface', async function (req, res){
       res.status(201).json({ "status": "Requested" });
       
     }else{
+      const now = new Date();
+      const timeString = now.toISOString();
+      addDataToMongoDB(personname, "APPROVED", timeString )
       res.status(201).json({ "status": "approved" });
     }
   } catch (error) {
@@ -262,6 +290,9 @@ app.get('/api/approveface', async function (req, res){
   try {
     var result = await callPrepareData('check.jpg')
     var result2 = await callTrainPython('trainfolder', personname)
+    const now = new Date();
+    const timeString = now.toISOString();
+    addDataToMongoDB(personname, "ADDED", timeString )
     console.log(result2)
     res.status(201).json({ status: 'done' });
   } catch (error) {
