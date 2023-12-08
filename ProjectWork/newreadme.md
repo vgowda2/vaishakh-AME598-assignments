@@ -1,9 +1,11 @@
 **Guide to the solution**
-!(Results/arch.png "Solution high level architecture")
+
+<img src="./Results/arch.png" >
+ "Solution high level architecture"
 
 
 
-** IoTApp **
+**IoTApp**
 This is an android application that the admin needs to install on their phone. The IoT app registers itsef to the FCM service which enables it to receive notifications from the server. For the purpose of the project , the FCM key is currently hardcoded in the server.
 
  The role of the app is to approve/ deny new face requests.
