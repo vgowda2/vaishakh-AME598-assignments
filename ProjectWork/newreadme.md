@@ -1,6 +1,6 @@
 **Guide to the solution**
 
-<img src="./Results/arch.png" width="120" height="178">
+<img src="./Results/arch.png">
  "Solution high level architecture"
 
 
