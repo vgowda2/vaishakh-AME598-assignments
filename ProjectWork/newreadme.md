@@ -13,13 +13,13 @@ This is an android application that the admin needs to install on their phone. T
 
 Below are a few acreenshots which are self explainatory.
 
-<img src=".Results/entry.jpeg" > 
+<img src="./Results/entry.jpeg" > 
 "Entry Point"
 
-<img src=".Results/entry.jpeg" > 
+<img src="./Results/entry.jpeg" > 
 !(Results/pending.jpeg "Face was not recognized. Pending approval")
 
-<img src=".Results/entry.jpeg" > 
+<img src="./Results/entry.jpeg" > 
 !(Results/success.jpeg "Face was successfully recognized")
 
 
@@ -30,16 +30,16 @@ This is also an android application that the client/user needs to install on the
 
 Below are a few acreenshots which are self explainatory.
 
-<img src=".Results/adminidlestate.png" > 
+<img src="./Results/adminidlestate.png" > 
  "Entry Point"
 
-<img src=".Results/adminnotif.png" > 
+<img src="./Results/adminnotif.png" > 
 "New access request alert"
 
-<img src=".Results/newrequest.png" > 
+<img src="./Results/newrequest.png" > 
 "Entry Point with queued request"
 
-<img src=".Results/mainscreen.png" > 
+<img src="./Results/mainscreen.png" > 
 "Main screen"
 
 
