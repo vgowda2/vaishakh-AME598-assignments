@@ -33,10 +33,10 @@ Below are a few acreenshots which are self explainatory.
 <img src="./Results/adminidlestate.png" width="120" height="178"> 
  "Entry Point"
 
-<img src="./Results/adminnotif.png"width="120" height="178" > 
+<img src="./Results/adminnotif.png" width="120" height="178" > 
 "New access request alert"
 
-<img src="./Results/newrequest.png"width="120" height="178" > 
+<img src="./Results/newrequest.png" width="120" height="178" > 
 "Entry Point with queued request"
 
 <img src="./Results/mainscreen.png" width="120" height="178"> 
