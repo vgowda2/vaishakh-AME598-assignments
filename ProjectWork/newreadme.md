@@ -1,6 +1,6 @@
 **Guide to the solution**
 
-<img src="./Results/arch.png" >
+<img src="./Results/arch.png" width="120" height="178">
  "Solution high level architecture"
 
 
@@ -13,14 +13,14 @@ This is an android application that the admin needs to install on their phone. T
 
 Below are a few acreenshots which are self explainatory.
 
-<img src="./Results/entry.jpeg" > 
+<img src="./Results/entry.jpeg" width="120" height="178" > 
 "Entry Point"
 
-<img src="./Results/entry.jpeg" > 
-!(Results/pending.jpeg "Face was not recognized. Pending approval")
+<img src="./Results/pending.jpeg" width="120" height="178" > 
+"Face was not recognized. Pending approval"
 
-<img src="./Results/entry.jpeg" > 
-!(Results/success.jpeg "Face was successfully recognized")
+<img src="./Results/success.jpeg" width="120" height="178" > 
+"Face was successfully recognized"
 
 
 **Client App**
@@ -30,16 +30,16 @@ This is also an android application that the client/user needs to install on the
 
 Below are a few acreenshots which are self explainatory.
 
-<img src="./Results/adminidlestate.png" > 
+<img src="./Results/adminidlestate.png" width="120" height="178"> 
  "Entry Point"
 
-<img src="./Results/adminnotif.png" > 
+<img src="./Results/adminnotif.png"width="120" height="178" > 
 "New access request alert"
 
-<img src="./Results/newrequest.png" > 
+<img src="./Results/newrequest.png"width="120" height="178" > 
 "Entry Point with queued request"
 
-<img src="./Results/mainscreen.png" > 
+<img src="./Results/mainscreen.png" width="120" height="178"> 
 "Main screen"
 
 
